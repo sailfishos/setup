@@ -1,0 +1,12 @@
+diff -urN setup-2.8.15/uidgid setup-2.8.15-new/uidgid
+--- setup-2.8.15/uidgid	2010-01-22 00:04:33.000000000 +0800
++++ setup-2.8.15-new/uidgid	2010-01-28 10:06:11.000000000 +0800
+@@ -95,7 +95,7 @@
+ screen	-	84	-		-	screen
+ quaggavt	-	85	-		-	quagga
+ sabayon	86	86	-		/sbin/nologin	sabayon
+-polkituser	87	87	/		/sbin/nologin	PolicyKit
++polkituser	87	87	/		/sbin/nologin	polkit
+ wbpriv	-	88	-		-	samba-common
+ postfix	89	89	/var/spool/postfix		/bin/true	postfix
+ postdrop	-	90	-		-	postfix

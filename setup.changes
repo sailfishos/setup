@@ -1,0 +1,84 @@
+* Wed Jun 01 2011 Marko Saukko <marko.saukko@cybercom.com> - 2.8.15
+- Add ttyO2 to setup-2.8.9-securetty.patch (used in N900 for example)
+
+* Sat May 21 2011 Anas Nashif <anas.nashif@intel.com> - 2.8.15
+- Remove dependency on perl and tcsh
+
+* Wed Aug 18 2010 Jan-Simon Moeller <jsmoeller@linuxfoundation.org> - 2.8.15
+- Don't include cflags in this way into the build environment. Never ever!
+- Preparing split of this into a file included in /etc/profile.d/ only on target
+  and keep it in sync with prjconf. prjconf is master!
+- Better pull from prjconf and embed !
+
+* Wed Aug 18 2010 Austin Zhang <austin.zhang@linux.intel.com> - 2.8.15
+- Don't omit frame pointer in building.
+
+* Mon Jul 19 2010 Marko Saukko <marko.saukko@cybercom.com> - 2.8.15
+- Added ttyS2 to securetty.
+
+* Thu Jul 08 2010 Austin Zhang <austin.zhang@linux.intel.com> - 2.8.15
+- Added additional flags for relocation and RO PLT
+
+* Fri Mar 05 2010 Austin Zhang <austin.zhang@linux.intel.com> - 2.8.15
+- Remove loop optimization compiler options, which will lead to 
+  some unexpected compiling failure.
+
+* Wed Feb 10 2010 Austin Zhang <austin.zhang@linux.intel.com> - 2.8.15
+- Rename version to 2.8.15 (source had been updated, but changelog not)
+  and remove obsoleted stuffs
+- Correct cmov_fast to fast_cmov
+- Add new compiler optimization flags
+
+* Sun Feb 7 2010 Arjan van de Ven <arjan@linux.intel.com> - 2.8.9
+- some older configure scripts don't understand "atom" and as a result
+  don't think the CPU supports CMOV. Help these configure scripts by
+  setting the appropriate environment variable.
+
+* Tue Nov 24 2009 Arjan van de Ven <arjan@linux.intel.com> - 2.8.9
+- use -mtune=atom for the CFLAGS env var
+
+* Mon Oct 05 2009 Anas Nashif <anas.nashif@intel.com> - 2.8.9
+- Assign polkit user to polkit package
+
+* Tue Sep 15 2009 Anas Nashif <anas.nashif@intel.com> - 2.8.9
+- Rebase to 2.8.9
+
+* Thu Apr 30 2009 Arjan van de Ven <arjan@linux.intel.com> 2.6.14
+- reinstate the CFLAGS environment variable
+
+* Tue Apr 28 2009 Anas Nashif <anas.nashif@intel.com> 2.6.14
+- Do not set CFLAGS in profile
+
+* Wed Apr 01 2009 Arjan van de Ven <arjan@linux.intel.com> 2.6.14
+- set the CFLAGS environment variable
+
+* Sat Feb 28 2009 Peter Zhu <peter.j.zhu@intel.com> 2.6.14
+- add ttyS0 into securetty
+
+* Mon Feb 09 2009 Vivian Zhang <vivian.zhang@intel.com> 2.6.14
+- Set i18n stuff in /etc/profile
+
+* Wed Jan 14 2009 Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com> 2.6.14
+- Fix misformatted entry for audio group (add empty password field)
+
+* Tue Jan 13 2009 Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com> 2.6.14
+- Add an audio group as an stop gap sollution until policy kit is fixed
+
+* Fri Jan 09 2009 Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com> 2.6.14
+- Add missing patch to add groups needed by udev
+
+* Thu Jan 08 2009 Anas Nashif <anas.nashif@intel.com> 2.6.14
+- Disable missing patch for now
+
+* Fri Dec 19 2008 Arjan van de Ven <arjan@linux.intel.com> 2.6.14
+- Enable coredumps by default
+
+* Tue Dec 16 2008 Anas Nashif <anas.nashif@intel.com> 2.6.14
+- Fixed rpmlint errors in Summary tag
+
+* Thu Dec 11 2008 Anas Nashif <anas.nashif@intel.com> 2.6.14
+- Remove dependency on tcsh
+
+* Fri Dec  5 2008 Auke Kok <auke-jan.h.kok@intel.com>
+- add vcsa and floppy user/group ids
+
