@@ -1,8 +1,0 @@
-<package project="Mer:Trunk:Base" name="setup">
-  <title>A set of system configuration and setup files</title>
-  <description>The setup package contains a set of important system configuration and
-setup files, such as passwd, group, and profile.
-
-</description>
-  <url>https://fedorahosted.org/setup/</url>
-</package>
