@@ -1,3 +1,6 @@
+* Thu Jun 28 2012 Carsten Munk <carsten@merproject.org> - 2.8.15
+- Remove ancient conflicts.
+
 * Wed Jun 01 2011 Marko Saukko <marko.saukko@cybercom.com> - 2.8.15
 - Add ttyO2 to setup-2.8.9-securetty.patch (used in N900 for example)
 

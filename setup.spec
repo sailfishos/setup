@@ -12,7 +12,6 @@ Patch2: setup-2.8.15-polkituser.patch
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch: noarch
 BuildRequires: bash
-Conflicts: initscripts < 4.26, bash <= 2.0.4-21
 
 %description
 The setup package contains a set of important system configuration and
