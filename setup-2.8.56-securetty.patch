@@ -1,0 +1,14 @@
+diff --git a/securetty b/securetty
+index c6fc8c3..71cf963 100644
+--- a/securetty
++++ b/securetty
+@@ -21,6 +21,9 @@ tty8
+ tty9
+ tty10
+ tty11
++ttyS0
++ttyS2
++ttyO2
+ hvc0
+ hvc1
+ hvsi0

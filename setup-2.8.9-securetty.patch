@@ -1,9 +1,0 @@
---- setup-2.8.9.orig/securetty
-+++ setup-2.8.9/securetty
-@@ -21,3 +21,6 @@
- tty9
- tty10
- tty11
-+ttyS0
-+ttyS2
-+ttyO2
