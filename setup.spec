@@ -9,6 +9,7 @@ Source0: https://fedorahosted.org/releases/s/e/%{name}/%{name}-%{version}.tar.bz
 Patch0: setup-2.8.15-tcsh.patch
 Patch1: setup-2.8.56-securetty.patch
 Patch2: setup-2.8.15-polkituser.patch
+Patch3: setup-2.8.56-droidcontainer.patch
 BuildArch: noarch
 BuildRequires: bash
 
@@ -21,6 +22,7 @@ setup files, such as passwd, group, and profile.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 ./shadowconvert.sh
 
