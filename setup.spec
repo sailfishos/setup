@@ -10,6 +10,7 @@ Patch0: setup-2.8.15-tcsh.patch
 Patch1: setup-2.8.56-securetty.patch
 Patch2: setup-2.8.15-polkituser.patch
 Patch3: setup-2.8.56-droidcontainer.patch
+Patch4: setup-2.8.56-add-utmp-group.patch
 BuildArch: noarch
 BuildRequires: bash
 
@@ -23,6 +24,7 @@ setup files, such as passwd, group, and profile.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 ./shadowconvert.sh
 

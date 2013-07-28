@@ -1,3 +1,6 @@
+* Thu Jul  4 2013 Mikko Hurskainen <mikko.hurskainen@nomovok.com> - 2.8.56
+- Add utmp group
+
 * Fri May 31 2013 Carsten Munk <carsten.munk@jollamobile.com> - 2.8.56
 - Change uid/gid of nobody and audio to fit witth droid compatibility
 
