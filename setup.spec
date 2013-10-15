@@ -29,6 +29,8 @@ setup files, such as passwd, group, and profile.
 ./shadowconvert.sh
 
 %build
+# Workaround for patching
+rm -f group.orig
 
 %check
 # Run any sanity checks.
