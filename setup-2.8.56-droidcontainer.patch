@@ -1,6 +1,6 @@
 diff -ru setup-2.8.56/group setup-2.8.56-droidcontainer/group
---- setup-2.8.56/group	2012-07-13 12:58:49.000000000 +0200
-+++ setup-2.8.56-droidcontainer/group	2013-05-31 09:35:09.217147095 +0200
+--- setup-2.8.56/group	2012-07-13 13:58:49.000000000 +0300
++++ setup-2.8.56-droidcontainer/group	2014-05-02 12:40:33.610481984 +0300
 @@ -18,6 +18,6 @@
  dip::40:
  ftp::50:
@@ -10,9 +10,18 @@ diff -ru setup-2.8.56/group setup-2.8.56-droidcontainer/group
 +audio::1005:
 +nobody::9999:
  users::100:
+diff -ru setup-2.8.56/passwd setup-2.8.56-droidcontainer/passwd
+--- setup-2.8.56/passwd	2012-07-13 13:58:49.000000000 +0300
++++ setup-2.8.56-droidcontainer/passwd	2014-05-02 12:40:33.626481984 +0300
+@@ -12,4 +12,4 @@
+ games:*:12:100:games:/usr/games:/sbin/nologin
+ gopher:*:13:30:gopher:/var/gopher:/sbin/nologin
+ ftp:*:14:50:FTP User:/var/ftp:/sbin/nologin
+-nobody:*:99:99:Nobody:/:/sbin/nologin
++nobody:*:99:9999:Nobody:/:/sbin/nologin
 diff -ru setup-2.8.56/uidgid setup-2.8.56-droidcontainer/uidgid
---- setup-2.8.56/uidgid	2012-07-13 12:58:49.000000000 +0200
-+++ setup-2.8.56-droidcontainer/uidgid	2013-05-31 09:35:34.139085596 +0200
+--- setup-2.8.56/uidgid	2014-05-02 12:40:56.738481115 +0300
++++ setup-2.8.56-droidcontainer/uidgid	2014-05-02 12:40:33.626481984 +0300
 @@ -69,7 +69,7 @@
  piranha	60	60	/etc/sysconfig/ha		/dev/null	piranha
  prelude-manager	61	61	-		/sbin/nologin	prelude-manager
