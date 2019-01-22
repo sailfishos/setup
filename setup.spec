@@ -18,6 +18,14 @@ BuildRequires: bash
 The setup package contains a set of important system configuration and
 setup files, such as passwd, group, and profile.
 
+%package doc
+Summary:   Documentation for %{name}
+Group:     Documentation
+Requires:  %{name} = %{version}-%{release}
+
+%description doc
+%{summary}.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -57,6 +65,9 @@ rm -f %{buildroot}/etc/uidgidlint
 rm -f %{buildroot}/etc/shadowconvert.sh
 rm -f %{buildroot}/etc/setup.spec
 
+mkdir -p %{buildroot}%{_docdir}/%{name}-%{version}
+install -m0644 uidgid %{buildroot}%{_docdir}/%{name}-%{version}
+
 #throw away useless and dangerous update stuff until rpm will be able to
 #handle it ( http://rpm.org/ticket/6 )
 %post -p <lua>
@@ -69,7 +80,7 @@ end
 
 %files
 %defattr(-,root,root,-)
-%doc uidgid COPYING
+%license COPYING
 %verify(not md5 size mtime) %config(noreplace) /etc/passwd
 %verify(not md5 size mtime) %config(noreplace) /etc/group
 %verify(not md5 size mtime) %attr(0000,root,root) %config(noreplace,missingok) /etc/shadow
@@ -97,3 +108,6 @@ end
 %ghost %attr(0644,root,root) %verify(not md5 size mtime) /var/log/lastlog
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
 
+%files doc
+%defattr(-,root,root,-)
+%{_docdir}/%{name}-%{version}
