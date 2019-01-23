@@ -1,4 +1,4 @@
-* Mon Jan 22 2019 Tomi Leppänen <tomi.leppanen@jolla.com> - 2.8.56
+* Mon Jan 22 2019 Tomi Leppänen <tomi.leppanen@jolla.com> - 2.8.56+git2
 - [packaging] Add setup-doc subpackage. Contributes to JB#24119
 
 * Thu May 15 2014 Carsten V. Munk <carsten.munk@jolla.com> - 2.8.56
