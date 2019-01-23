@@ -1,3 +1,6 @@
+* Mon Jan 22 2019 Tomi Leppänen <tomi.leppanen@jolla.com> - 2.8.56
+- [packaging] Add setup-doc subpackage. Contributes to JB#24119
+
 * Thu May 15 2014 Carsten V. Munk <carsten.munk@jolla.com> - 2.8.56
 - Update droid compatibility, fix 'nobody' group belonging
 
@@ -57,42 +60,41 @@
 * Tue Sep 15 2009 Anas Nashif <anas.nashif@intel.com> - 2.8.9
 - Rebase to 2.8.9
 
-* Thu Apr 30 2009 Arjan van de Ven <arjan@linux.intel.com> 2.6.14
+* Thu Apr 30 2009 Arjan van de Ven <arjan@linux.intel.com> - 2.6.14
 - reinstate the CFLAGS environment variable
 
-* Tue Apr 28 2009 Anas Nashif <anas.nashif@intel.com> 2.6.14
+* Tue Apr 28 2009 Anas Nashif <anas.nashif@intel.com> - 2.6.14
 - Do not set CFLAGS in profile
 
-* Wed Apr 01 2009 Arjan van de Ven <arjan@linux.intel.com> 2.6.14
+* Wed Apr 01 2009 Arjan van de Ven <arjan@linux.intel.com> - 2.6.14
 - set the CFLAGS environment variable
 
-* Sat Feb 28 2009 Peter Zhu <peter.j.zhu@intel.com> 2.6.14
+* Sat Feb 28 2009 Peter Zhu <peter.j.zhu@intel.com> - 2.6.14
 - add ttyS0 into securetty
 
-* Mon Feb 09 2009 Vivian Zhang <vivian.zhang@intel.com> 2.6.14
+* Mon Feb 09 2009 Vivian Zhang <vivian.zhang@intel.com> - 2.6.14
 - Set i18n stuff in /etc/profile
 
-* Wed Jan 14 2009 Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com> 2.6.14
+* Wed Jan 14 2009 Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com> - 2.6.14
 - Fix misformatted entry for audio group (add empty password field)
 
-* Tue Jan 13 2009 Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com> 2.6.14
+* Tue Jan 13 2009 Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com> - 2.6.14
 - Add an audio group as an stop gap sollution until policy kit is fixed
 
-* Fri Jan 09 2009 Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com> 2.6.14
+* Fri Jan 09 2009 Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com> - 2.6.14
 - Add missing patch to add groups needed by udev
 
-* Thu Jan 08 2009 Anas Nashif <anas.nashif@intel.com> 2.6.14
+* Thu Jan 08 2009 Anas Nashif <anas.nashif@intel.com> - 2.6.14
 - Disable missing patch for now
 
-* Fri Dec 19 2008 Arjan van de Ven <arjan@linux.intel.com> 2.6.14
+* Fri Dec 19 2008 Arjan van de Ven <arjan@linux.intel.com> - 2.6.14
 - Enable coredumps by default
 
-* Tue Dec 16 2008 Anas Nashif <anas.nashif@intel.com> 2.6.14
+* Tue Dec 16 2008 Anas Nashif <anas.nashif@intel.com> - 2.6.14
 - Fixed rpmlint errors in Summary tag
 
-* Thu Dec 11 2008 Anas Nashif <anas.nashif@intel.com> 2.6.14
+* Thu Dec 11 2008 Anas Nashif <anas.nashif@intel.com> - 2.6.14
 - Remove dependency on tcsh
 
-* Fri Dec  5 2008 Auke Kok <auke-jan.h.kok@intel.com>
+* Fri Dec  5 2008 Auke Kok <auke-jan.h.kok@intel.com> - 2.6.14
 - add vcsa and floppy user/group ids
-
