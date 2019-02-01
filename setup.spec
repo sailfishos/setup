@@ -1,7 +1,7 @@
 Summary: A set of system configuration and setup files
 Name: setup
 Version: 2.8.56
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: Public Domain
 Group: System/Base
 URL: https://fedorahosted.org/setup/
