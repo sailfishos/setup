@@ -1,5 +1,5 @@
 * Mon Mar 02 2020 Matti Kosola <matti.kosola@jolla.com> - 2.13.6+git1
-- Update to 2.13.6 version.
+- Update to 2.13.6 version. Fixes JB#47909
 
 * Mon Jan 22 2019 Tomi Leppänen <tomi.leppanen@jolla.com> - 2.8.56-2
 - [packaging] Add setup-doc subpackage. Contributes to JB#24119
