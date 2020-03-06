@@ -1,6 +1,6 @@
-diff -urN setup-2.8.15/Makefile setup-2.8.15-new/Makefile
---- setup-2.8.15/Makefile	2010-01-22 00:04:33.000000000 +0800
-+++ setup-2.8.15-new/Makefile	2010-01-28 09:58:53.000000000 +0800
+diff -Naur setup-2.13.6/Makefile setup-2.13.6-new/Makefile
+--- setup-2.13.6/Makefile	2019-10-09 11:18:39.000000000 +0300
++++ setup-2.13.6-new/Makefile	2020-03-02 12:51:32.849161343 +0200
 @@ -7,8 +7,6 @@
  	@echo Sanity checking selected files....
  	bash -n bashrc

@@ -1,18 +1,16 @@
+%global setup_version 2.13.6
+
 Summary: A set of system configuration and setup files
 Name: setup
-Version: 2.8.56
-Release: 2%{?dist}
+Version: %{setup_version}+git1
+Release: 1
 License: Public Domain
-Group: System/Base
-URL: https://fedorahosted.org/setup/
-Source0: https://fedorahosted.org/releases/s/e/%{name}/%{name}-%{version}.tar.bz2
-Patch0: setup-2.8.15-tcsh.patch
-Patch1: setup-2.8.56-securetty.patch
-Patch2: setup-2.8.15-polkituser.patch
-Patch3: setup-2.8.56-droidcontainer.patch
-Patch4: setup-2.8.56-add-utmp-group.patch
+URL: https://pagure.io/setup/
+Source0: %{name}-%{setup_version}.tar.bz2
+Patch0: setup-2.13.6-tcsh.patch
 BuildArch: noarch
-BuildRequires: bash
+#systemd: required to use _tmpfilesdir macro
+BuildRequires: bash systemd
 
 %description
 The setup package contains a set of important system configuration and
@@ -20,25 +18,18 @@ setup files, such as passwd, group, and profile.
 
 %package doc
 Summary:   Documentation for %{name}
-Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
 
 %description doc
 %{summary}.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{setup_version}
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
 ./shadowconvert.sh
 
 %build
-# Workaround for patching
-rm -f group.orig
 
 %check
 # Run any sanity checks.
@@ -47,7 +38,9 @@ make check
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/etc/profile.d
+mkdir -p %{buildroot}/etc/motd.d
 cp -ar * %{buildroot}/etc
+mv %{buildroot}/etc/lang* %{buildroot}/etc/profile.d/
 rm -f %{buildroot}/etc/uidgid
 rm -f %{buildroot}/etc/COPYING
 mkdir -p %{buildroot}/var/log
@@ -57,6 +50,18 @@ chmod 0644 %{buildroot}/etc/environment
 chmod 0400 %{buildroot}/etc/{shadow,gshadow}
 chmod 0644 %{buildroot}/var/log/lastlog
 touch %{buildroot}/etc/fstab
+mkdir -p %{buildroot}/etc/profile.d
+echo "#Add any required envvar overrides to this file, it is sourced from /etc/profile" >%{buildroot}/etc/profile.d/sh.local
+echo "#Add any required envvar overrides to this file, is sourced from /etc/csh.login" >%{buildroot}/etc/profile.d/csh.local
+mkdir -p %{buildroot}/run/motd.d
+touch %{buildroot}/run/motd
+mkdir -p %{buildroot}/usr/lib/motd.d
+touch %{buildroot}/usr/lib/motd
+#tmpfiles needed for files in /run
+mkdir -p %{buildroot}%{_tmpfilesdir}
+echo "f /run/motd 0644 root root -" >%{buildroot}%{_tmpfilesdir}/%{name}.conf
+echo "d /run/motd.d 0755 root root -" >>%{buildroot}%{_tmpfilesdir}/%{name}.conf
+chmod 0644 %{buildroot}%{_tmpfilesdir}/%{name}.conf
 
 # remove unpackaged files from the buildroot
 rm -f %{buildroot}/etc/Makefile
@@ -64,6 +69,7 @@ rm -f %{buildroot}/etc/serviceslint
 rm -f %{buildroot}/etc/uidgidlint
 rm -f %{buildroot}/etc/shadowconvert.sh
 rm -f %{buildroot}/etc/setup.spec
+rm -rf %{buildroot}/etc/contrib
 
 mkdir -p %{buildroot}%{_docdir}/%{name}-%{version}
 install -m0644 uidgid %{buildroot}%{_docdir}/%{name}-%{version}
@@ -85,6 +91,8 @@ end
 %verify(not md5 size mtime) %config(noreplace) /etc/group
 %verify(not md5 size mtime) %attr(0000,root,root) %config(noreplace,missingok) /etc/shadow
 %verify(not md5 size mtime) %attr(0000,root,root) %config(noreplace,missingok) /etc/gshadow
+%verify(not md5 size mtime) %config(noreplace) /etc/subuid
+%verify(not md5 size mtime) %config(noreplace) /etc/subgid
 %config(noreplace) /etc/services
 %verify(not md5 size mtime) %config(noreplace) /etc/exports
 %config(noreplace) /etc/aliases
@@ -92,22 +100,31 @@ end
 %config(noreplace) /etc/filesystems
 %config(noreplace) /etc/host.conf
 %verify(not md5 size mtime) %config(noreplace) /etc/hosts
-%config(noreplace) /etc/hosts.allow
-%config(noreplace) /etc/hosts.deny
 %verify(not md5 size mtime) %config(noreplace) /etc/motd
+%dir /etc/motd.d
+%verify(not md5 size mtime) %config(noreplace) /run/motd
+%dir /run/motd.d
+%verify(not md5 size mtime) %config(noreplace) /usr/lib/motd
+%dir /usr/lib/motd.d
 %config(noreplace) /etc/printcap
 %verify(not md5 size mtime) %config(noreplace) /etc/inputrc
 %config(noreplace) /etc/bashrc
 %config(noreplace) /etc/profile
 %config(noreplace) /etc/protocols
-%attr(0600,root,root) %config(noreplace,missingok) /etc/securetty
+%config(noreplace) /etc/ethertypes
 %config(noreplace) /etc/csh.login
 %config(noreplace) /etc/csh.cshrc
+%config(noreplace) /etc/networks
 %dir /etc/profile.d
+%config(noreplace) /etc/profile.d/sh.local
+%config(noreplace) /etc/profile.d/csh.local
+/etc/profile.d/lang.{sh,csh}
 %config(noreplace) %verify(not md5 size mtime) /etc/shells
 %ghost %attr(0644,root,root) %verify(not md5 size mtime) /var/log/lastlog
 %ghost %verify(not md5 size mtime) %config(noreplace,missingok) /etc/fstab
+%{_tmpfilesdir}/%{name}.conf
 
 %files doc
 %defattr(-,root,root,-)
+%doc uidgid
 %{_docdir}/%{name}-%{version}
