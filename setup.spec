@@ -2,12 +2,13 @@
 
 Summary: A set of system configuration and setup files
 Name: setup
-Version: %{setup_version}+git1
+Version: %{setup_version}+git2
 Release: 1
 License: Public Domain
 URL: https://pagure.io/setup/
 Source0: %{name}-%{setup_version}.tar.bz2
 Patch0: setup-2.13.6-tcsh.patch
+Patch1: dont-use-here-string.patch
 BuildArch: noarch
 #systemd: required to use _tmpfilesdir macro
 BuildRequires: bash systemd
@@ -24,8 +25,7 @@ Requires:  %{name} = %{version}-%{release}
 %{summary}.
 
 %prep
-%setup -q -n %{name}-%{setup_version}
-%patch0 -p1
+%autosetup -n %{name}-%{setup_version}
 
 ./shadowconvert.sh
 

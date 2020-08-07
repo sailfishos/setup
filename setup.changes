@@ -1,3 +1,6 @@
+* Mon Jun 22 2020 Tomi Leppänen <tomi.leppanen@jolla.com> - 2.13.6+git2
+- Don't use here strings. Contributes to JB#39735
+
 * Mon Mar 02 2020 Matti Kosola <matti.kosola@jolla.com> - 2.13.6+git1
 - Update to 2.13.6 version. Fixes JB#47909
 
