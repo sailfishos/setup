@@ -2,7 +2,7 @@
 
 Summary: A set of system configuration and setup files
 Name: setup
-Version: %{setup_version}+git2
+Version: %{setup_version}+git3
 Release: 1
 License: Public Domain
 URL: https://pagure.io/setup/

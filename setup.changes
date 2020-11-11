@@ -1,3 +1,6 @@
+* Wed Nov 11 2020 Marko Lemmetty <marko.lemmetty@jolla.com> 2.13.6+git3
+- Change lang.sh so that grep is compatible with busybox. Fixes JB#51659
+
 * Mon Jun 22 2020 Tomi Leppänen <tomi.leppanen@jolla.com> - 2.13.6+git2
 - Don't use here strings. Contributes to JB#39735
 
