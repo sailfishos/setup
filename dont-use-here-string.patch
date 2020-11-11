@@ -1,15 +1,18 @@
 Here strings are not supported by busybox ash as of version 1.31.0.
 Substitute with echo and piping.
+Changed grep --quiet to -q since busybox grep don't support --quiet option.
 
 ---
---- setup-2.13.6/lang.sh.orig	2020-06-22 16:50:05.945742987 +0300
-+++ setup-2.13.6/lang.sh	2020-06-22 16:50:29.398989790 +0300
-@@ -59,7 +59,7 @@
+--- setup-2.13.6/lang.sh	2019-10-09 11:18:39.000000000 +0300
++++ setup-2.13.6-mod/lang.sh	2020-11-04 15:46:22.181163907 +0200
+@@ -58,8 +58,8 @@
+ fi
  
  # The ${LANG} manipulation is necessary only in virtual terminal (a.k.a. console - /dev/tty*):
- if [ -n "${LANG}" ] && [ "${TERM}" = 'linux' ] && /usr/bin/tty | /usr/bin/grep --quiet -e '/dev/tty'; then
+-if [ -n "${LANG}" ] && [ "${TERM}" = 'linux' ] && /usr/bin/tty | /usr/bin/grep --quiet -e '/dev/tty'; then
 -    if /usr/bin/grep --quiet -E -i -e '^.+\.utf-?8$' <<< "${LANG}"; then
-+    if echo "${LANG}" | /usr/bin/grep --quiet -E -i -e '^.+\.utf-?8$'; then
++if [ -n "${LANG}" ] && [ "${TERM}" = 'linux' ] && /usr/bin/tty | /usr/bin/grep -q -e '/dev/tty'; then
++    if echo "${LANG}" | /usr/bin/grep -q -E -i -e '^.+\.utf-?8$'; then
          case ${LANG} in
              ja*)    LANG=en_US.UTF-8 ;;
              ko*)    LANG=en_US.UTF-8 ;;
