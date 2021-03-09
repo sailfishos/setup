@@ -2,7 +2,7 @@
 
 Summary: A set of system configuration and setup files
 Name: setup
-Version: %{setup_version}+git3
+Version: %{setup_version}+git4
 Release: 1
 License: Public Domain
 URL: https://pagure.io/setup/
@@ -74,14 +74,31 @@ rm -rf %{buildroot}/etc/contrib
 mkdir -p %{buildroot}%{_docdir}/%{name}-%{version}
 install -m0644 uidgid %{buildroot}%{_docdir}/%{name}-%{version}
 
-#throw away useless and dangerous update stuff until rpm will be able to
-#handle it ( http://rpm.org/ticket/6 )
+# At top: throw away useless and dangerous update stuff until rpm will be able
+# to handle it ( http://rpm.org/ticket/6 )
+# At bottom: Ensure that at least sh and bash are properly in place. See JB#53402
+# That part is taken from Fedora's bash packaging and modified slightly
 %post -p <lua>
 for i, name in ipairs({"passwd", "shadow", "group", "gshadow"}) do
      os.remove("/etc/"..name..".rpmnew")
 end
 if posix.access("/usr/bin/newaliases", "x") then
   os.execute("/usr/bin/newaliases >/dev/null")
+end
+
+nl        = '\n'
+sh        = '/bin/sh'..nl
+usr_sh    = '%{_bindir}/sh'..nl
+bash      = '/bin/bash'..nl
+usr_bash  = '%{_bindir}/bash'..nl
+f = io.open('/etc/shells', 'a+')
+if f then
+  local shells = nl..f:read('*all')..nl
+  if not shells:find(nl..sh) then f:write(sh) end
+  if not shells:find(nl..usr_sh) then f:write(usr_sh) end
+  if not shells:find(nl..bash) then f:write(bash) end
+  if not shells:find(nl..usr_bash) then f:write(usr_bash) end
+  f:close()
 end
 
 %files
