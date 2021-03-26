@@ -1,5 +1,5 @@
 * Tue Mar 09 2021 Tomi Leppänen <tomi.leppanen@jolla.com> - 2.13.6+git4
-- Ensure that shells are listed in /etc/shells
+- Ensure that shells are listed in /etc/shells. Fixes JB#53402
 
 * Wed Nov 11 2020 Marko Lemmetty <marko.lemmetty@jolla.com> - 2.13.6+git3
 - Change lang.sh so that grep is compatible with busybox. Fixes JB#51659
