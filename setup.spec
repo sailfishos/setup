@@ -2,7 +2,7 @@
 
 Summary: A set of system configuration and setup files
 Name: setup
-Version: %{setup_version}+git4
+Version: %{setup_version}+git5
 Release: 1
 License: Public Domain
 URL: https://pagure.io/setup/
@@ -11,7 +11,8 @@ Patch0: setup-2.13.6-tcsh.patch
 Patch1: dont-use-here-string.patch
 BuildArch: noarch
 #systemd: required to use _tmpfilesdir macro
-BuildRequires: bash systemd
+BuildRequires: bash
+BuildRequires: pkgconfig(systemd)
 
 %description
 The setup package contains a set of important system configuration and
