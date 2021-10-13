@@ -1,3 +1,6 @@
+* Wed Oct 13 2021 Björn Bidar <bjorn.bidar@jolla.com> - 2.13.6+git5
+- [packaging] BuildRequire systemd via pkgconfig. JB#55010
+
 * Tue Mar 09 2021 Tomi Leppänen <tomi.leppanen@jolla.com> - 2.13.6+git4
 - Ensure that shells are listed in /etc/shells. Fixes JB#53402
 
