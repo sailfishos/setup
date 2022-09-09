@@ -1,0 +1,5 @@
+#!/usr/bin/git-change-log --script
+
+git-change-log
+echo
+git-show :rpm/setup.changes

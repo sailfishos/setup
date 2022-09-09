@@ -1,14 +1,12 @@
-%global setup_version 2.13.6
-
 Summary: A set of system configuration and setup files
 Name: setup
-Version: %{setup_version}+git5
+Version: 0
 Release: 1
 License: Public Domain
-URL: https://pagure.io/setup/
-Source0: %{name}-%{setup_version}.tar.bz2
-Patch0: setup-2.13.6-tcsh.patch
-Patch1: dont-use-here-string.patch
+URL: https://github.com/sailfishos/setup
+Source0: %{name}-%{version}.tar.bz2
+Patch0: 0001-setup-2.13.6-tcsh.patch
+Patch1: 0002-dont-use-here-string.patch
 BuildArch: noarch
 #systemd: required to use _tmpfilesdir macro
 BuildRequires: bash
@@ -26,7 +24,7 @@ Requires:  %{name} = %{version}-%{release}
 %{summary}.
 
 %prep
-%autosetup -n %{name}-%{setup_version}
+%autosetup -n %{name}-%{version}/setup
 
 ./shadowconvert.sh
 
