@@ -7,6 +7,7 @@ URL: https://github.com/sailfishos/setup
 Source0: %{name}-%{version}.tar.bz2
 Patch0: 0001-setup-2.13.6-tcsh.patch
 Patch1: 0002-dont-use-here-string.patch
+Patch2: 0003-Ensure-build-reproducibility.patch
 BuildArch: noarch
 #systemd: required to use _tmpfilesdir macro
 BuildRequires: bash
