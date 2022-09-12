@@ -1,0 +1,22 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Martin Kampas <martin.kampas@jolla.com>
+Date: Fri, 9 Sep 2022 08:58:22 +0200
+Subject: [PATCH] Ensure build reproducibility
+
+---
+ shadowconvert.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/shadowconvert.sh b/shadowconvert.sh
+index 4be13b6eb5cc38af79f796c885b47e5ee493141a..8a9f2e22a00f52a2b3f1e743d82d88cf97902b76 100755
+--- a/shadowconvert.sh
++++ b/shadowconvert.sh
+@@ -6,7 +6,7 @@ then
+ fi
+ 
+ #make prototype for /etc/shadow
+-sed -e "s/:.*/:*:`expr $(date +%s) / 86400`:0:99999:7:::/" passwd >shadow
++sed -e "s/:.*/:*:`expr ${SOURCE_DATE_EPOCH:-$(date +%s)} / 86400`:0:99999:7:::/" passwd >shadow
+ 
+ #make prototype for /etc/gshadow
+ sed -e 's/:[0-9]\+:/::/g' group >gshadow
